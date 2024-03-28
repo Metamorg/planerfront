@@ -4,12 +4,13 @@ import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 import { X } from 'lucide-react'
 import { useState } from 'react'
 import { DayPicker, type SelectSingleEventHandler } from 'react-day-picker'
+import { ru } from 'date-fns/locale';
 import 'react-day-picker/dist/style.css'
 
 import { useOutside } from '@/hooks/useOutside'
 
 import './DatePicker.scss'
-import { formatCaption } from './DatePickerCaption'
+//import { formatCaption } from './DatePickerCaption'
 
 dayjs.extend(LocalizedFormat)
 
@@ -66,6 +67,7 @@ export function DatePicker({
 					}}
 				>
 					<DayPicker
+						locale={ru}
 						fromYear={2023}
 						toYear={2054}
 						initialFocus={isShow}
@@ -74,7 +76,7 @@ export function DatePicker({
 						selected={selected}
 						onSelect={handleDaySelect}
 						weekStartsOn={1}
-						formatters={{ formatCaption }}
+						// formatters={{ formatCaption }}
 					/>
 				</div>
 			)}
